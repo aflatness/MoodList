@@ -3,6 +3,9 @@ import React, { useState } from 'react';
 import { InputGroup } from 'react-bootstrap';
 import RangeSlider from 'react-bootstrap-range-slider';
 import { getSongs, getFeatures, getRecommended } from '../controllers';
+import 'bootstrap/dist/css/bootstrap.css'
+import 'react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css';
+
 
 const MoodForm = ({ user, setUser, getData }) => {
   const [mood, setMood ] = useState(50);
@@ -45,12 +48,12 @@ const MoodForm = ({ user, setUser, getData }) => {
 
   return (
     <div id='mood-slider'>
-      <div id='mood-title' >What is your mood?</div>
+      <div id='mood-title' >What's your mood?</div>
       <div>Mood: {mood}% {'  '}
-        <RangeSlider onChange={(e) => setMood(e.target.value)} />
+        <RangeSlider variant='success' value={mood} step={10} onChange={(e) => setMood(e.target.value)} />
       </div>
       <div>Energy: {energy}% {'  '}
-        <RangeSlider onChange={(e) => setEnergy(e.target.value)} />
+        <RangeSlider variant='success' value={energy} step={10} onChange={(e) => setEnergy(e.target.value)} />
       </div>
       <button id='slider-btn' onClick={submitMood}>Find playlists!</button>
     </div>

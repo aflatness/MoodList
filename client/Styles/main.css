@@ -1,5 +1,6 @@
 body {
-  background-color: rgb(31, 31, 112) !important;
+  /* background-color: rgb(31, 31, 112) !important; */
+  background-color: rgb(101, 101, 223) !important;
   font-family: 'Varela Round', sans-serif !important;
   color: white !important;
 }
@@ -52,9 +53,10 @@ body {
 
 /* Header Styling */
 #header {
-  /* height: 100px; */
   color: white;
-  background-color: rgb(21, 21, 77);
+  background-color: rgb(79, 79, 177);
+  /* background-color: rgb(21, 21, 77); */
+
 }
 
 #header-logo {
@@ -98,7 +100,7 @@ body {
   padding-top: .6em;
   font-size: 24px;
   vertical-align: baseline;
-  color: rgb(85, 85, 85);
+  color: rgb(42, 42, 42);
   cursor: pointer;
 }
 
@@ -150,3 +152,7 @@ body {
   text-align: center;
   font-size: 20px;
 }
+
+/* .range-slider--success:root {
+  background-color: green !important;
+} */
