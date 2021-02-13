@@ -1,0 +1,89 @@
+body {
+  background-color: rgb(31, 31, 112) !important;
+  font-family: 'Varela Round', sans-serif !important;
+  color: white !important;
+}
+
+/* Login page styling */
+#login-page, #mood-slider {
+  margin: auto;
+  width: 50%;
+  text-align: center;
+  color: white;
+}
+
+#login-title {
+  font-size: 50px;
+  margin-top: .8em;
+}
+
+#login-note {
+  font-size: 35px;
+  margin: .8em 0 .8em 0;
+}
+
+#login-btn {
+  height: 60px;
+  font-size: 20px;
+  border: 0 solid #1aa34a;
+  color: #fff;
+  background-color: #1aa34a;
+  border-radius: 33px;
+  padding: 8px 20px;
+  outline: none;
+}
+
+#login-btn:hover {
+  background-color: #1db954;
+  cursor: pointer;
+}
+
+#login-btn a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Header Styling */
+#header {
+  /* height: 100px; */
+  color: white;
+  background-color: rgb(21, 21, 77);
+}
+
+#header-title img {
+  margin-top: 0.3em;
+  margin-right: 10px;
+  height: 30px;
+  width: 30px;
+  border: 0px transparent white;
+  border-radius: 50%;
+  float: right;
+}
+
+#header-title {
+  padding: .2em 0 0 25px;
+  font-size: 50px;
+  color: #fff;
+}
+
+#header-name, #logout {
+  float: right;
+  margin-right: 25px;
+  padding-top: .6em;
+  font-size: 24px;
+  vertical-align: baseline;
+  color: rgb(85, 85, 85);
+}
+
+#logout {
+  cursor: pointer;
+}
+
+#logout:hover {
+  color: #fff;
+}
+
+#mood-slider {
+  margin-top: 30px;
+  font-size: 20px;
+}
