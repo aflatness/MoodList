@@ -15,12 +15,21 @@ const App = (props) => {
     if (cook) {
       const obj = JSON.parse(Cookies.get('spotify-auth-session'));
       setLoggedIn(true)
-      setUser(obj)
+      getData(obj._id)
+      // setUser(obj)
     }
   }, [Cookies.get('spotify-auth-session'), isLoggedIn])
 
+  const getData = (id) => {
+    axios.get(`http://localhost:3000/api/user/${id}`)
+      .then(({ data }) => {
+        setUser(data)
+      })
+      .catch((err => console.log(err)))
+  }
+
   console.log(isLoggedIn, user)
-  return ( isLoggedIn ? <Dashboard user={user} loggedIn={setLoggedIn}/> : <Login />
+  return ( isLoggedIn ? <Dashboard user={user} loggedIn={setLoggedIn} setUser={setUser} getData={getData} /> : <Login />
   )
 }
 

@@ -6,22 +6,21 @@ mongoose.connect('mongodb://localhost/moodList', {
   useUnifiedTopology: true
 });
 
+const historySchema = new mongoose.Schema({
+  mood: Number,
+  energy: Number,
+  date: String
+})
+
 const userSchema = new mongoose.Schema({
   spotifyId: String,
   username: String,
   displayName: String,
   profileUrl: String,
   profilePic: String,
-  moodHistory: [Object],
+  moodHistory: [historySchema],
   accessToken: String
 });
-
-const applicationSchmea = new mongoose.Schema({
-  company: String,
-  location: String,
-  date: String,
-
-})
 
 const User = mongoose.model('users', userSchema);
 

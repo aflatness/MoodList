@@ -3,7 +3,7 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieSession = require('cookie-session');
-const { user } = require('./database');
+const { User } = require('./database');
 const hashFunc = require('./utils/hash.js');
 const validatePwd = require('./utils/validatePwd.js');
 const passport = require('passport');
@@ -12,9 +12,15 @@ require('./utils/passport.js');
 const app = express();
 const PORT = 3000;
 
+app.use(bodyParser.json());
 app.use(cors());
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use(cookieSession({
+  name: 'spotify-auth-session',
+  keys: 'user'
+}))
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -32,19 +38,19 @@ app.get('/auth/spotify/callback', passport.authenticate('spotify', {failureRedir
 // app.get('/login', (req, res) => res.send());
 // app.get('/loggedIn', (req, res) => res.send());
 
-app.get('/api/user', async (req, res) => {
+app.get('/api/user/:id', async (req, res) => {
   try {
-    const { password, email } = req.body;
-    const user = await user.find({ email });
-    validatePwd(password, user.password) ? res.status(200).send() : res.status(401).send();
+    const user = await User.findById(req.params.id);
+    res.status(200).send(user);
   } catch (err) {
+    console.log(err)
     res.status(404).send(err)
   }
 });
 
 app.put('/api/user/:id', async (req, res) => {
   try {
-    await user.findByIdAndUpdate(req.params.id, {$push: {mood: req.body}});
+    await User.findByIdAndUpdate(req.params.id, {$push: {moodHistory: req.body}});
     res.status(201).send();
   } catch (err) {
     res.status(404).send();
@@ -53,7 +59,7 @@ app.put('/api/user/:id', async (req, res) => {
 
 app.put('/api/playlists/:id', async (req, res) => {
   try {
-    const user = await user.findByIdAndUpdate(req.params.id, {$push: {playlists: req.body.playlist}})
+    const user = await User.findByIdAndUpdate(req.params.id, {$push: {playlists: req.body.playlist}})
     res.status(202).send();
   } catch (err) {
     res.status(404).send();

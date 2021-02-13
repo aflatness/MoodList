@@ -4,17 +4,21 @@ import { InputGroup } from 'react-bootstrap';
 import RangeSlider from 'react-bootstrap-range-slider';
 import { getSongs, getFeatures, getRecommended } from '../controllers';
 
-const MoodForm = ({ user }) => {
+const MoodForm = ({ user, setUser, getData }) => {
   const [mood, setMood ] = useState(50);
   const [energy, setEnergy] = useState(50);
 
   const saveMood = () => {
-    axios.post(`http://localhost:3000/api/user/${user._id}`, {mood, energy, date: new Date()})
+    axios.put(`http://localhost:3000/api/user/${user._id}`, {
+      mood: Number(mood),
+      energy: Number(energy),
+      date: new Date()
+    })
       .then(() => {
-
+        getData(user._id);
       })
-      .catch(() => {
-
+      .catch((err) => {
+        console.log(err);
       });
   }
 
@@ -41,14 +45,14 @@ const MoodForm = ({ user }) => {
 
   return (
     <div id='mood-slider'>
-      <div>What is your mood?</div>
+      <div id='mood-title' >What is your mood?</div>
       <div>Mood: {mood}% {'  '}
         <RangeSlider onChange={(e) => setMood(e.target.value)} />
       </div>
       <div>Energy: {energy}% {'  '}
         <RangeSlider onChange={(e) => setEnergy(e.target.value)} />
       </div>
-      <button onClick={submitMood}>Find playlists!</button>
+      <button id='slider-btn' onClick={submitMood}>Find playlists!</button>
     </div>
   );
 

@@ -5,7 +5,7 @@ body {
 }
 
 /* Login page styling */
-#login-page, #mood-slider {
+#login-page, #mood-slider, #history-title {
   margin: auto;
   width: 50%;
   text-align: center;
@@ -80,6 +80,18 @@ body {
   color: #fff;
 }
 
+#header-name:hover {
+  color: white;
+}
+
+#header-body:hover {
+  font-weight: bold;
+}
+
+.popover-body {
+  cursor: pointer;
+}
+
 #header-name, #logout {
   float: right;
   margin-right: 25px;
@@ -87,6 +99,7 @@ body {
   font-size: 24px;
   vertical-align: baseline;
   color: rgb(85, 85, 85);
+  cursor: pointer;
 }
 
 #logout {
@@ -99,5 +112,41 @@ body {
 
 #mood-slider {
   margin-top: 30px;
+  font-size: 20px;
+}
+
+#mood-title {
+  font-size: 35px;
+  margin-bottom: 15px;
+}
+
+#slider-btn {
+  margin-top: 15px;
+  height: 50px;
+  font-size: 20px;
+  border: 0 solid #1aa34a;
+  color: #fff;
+  background-color: #1aa34a;
+  border-radius: 33px;
+  padding: 8px 20px;
+  outline: none;
+}
+
+#slider-btn:hover {
+  cursor: pointer;
+  background-color: #1db954;
+}
+
+#history-title {
+  font-size: 48px;
+  text-decoration: underline;
+  margin-bottom: 20px
+}
+
+#history-block .table {
+  width: fill !important;
+  max-width: fill !important;
+  margin: auto;
+  text-align: center;
   font-size: 20px;
 }
