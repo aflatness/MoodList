@@ -3,7 +3,7 @@ import HistoryRow from './HistoryRow.jsx';
 import { Table } from 'react-bootstrap';
 
 const History = ({ history }) => {
-  console.log(history)
+
   return (
     <div id='history-block'>
       <div id='history-title'>History</div>
@@ -16,7 +16,7 @@ const History = ({ history }) => {
           </tr>
         </thead>
         <tbody>
-          {history.reverse().map(data => <HistoryRow data={data} />)}
+          {history.map(data => <HistoryRow data={data} />)}
         </tbody>
       </Table>
     </div>

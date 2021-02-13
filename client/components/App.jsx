@@ -23,6 +23,7 @@ const App = (props) => {
   const getData = (id) => {
     axios.get(`http://localhost:3000/api/user/${id}`)
       .then(({ data }) => {
+        data.moodHistory.reverse();
         setUser(data)
       })
       .catch((err => console.log(err)))

@@ -147,7 +147,7 @@ body {
   text-decoration: underline;
 }
 
-#history-block .table, #loading-notice {
+#history-block .table, #loading-notice, #results-title {
   width: fill !important;
   max-width: fill !important;
   margin: auto;
@@ -160,8 +160,41 @@ body {
   font-size: 40px;
 }
 
+#results {
+  margin-top: 25px;
+}
+
+#results-title {
+  font-size: 35px;
+  margin-bottom: 15px;
+}
+
+#results-add-playlist {
+  margin-bottom: 15px;
+  margin-left: 25px;
+  height: 50px;
+  font-size: 20px;
+  border: 0 solid #1aa34a;
+  color: #fff;
+  background-color: #1aa34a;
+  border-radius: 33px;
+  padding: 8px 20px;
+  outline: none;
+  vertical-align: .2em;
+}
+
+#results-add-playlist:hover {
+  cursor: pointer;
+  background-color: #1db954;
+}
+
+#results-container {
+  height: 100vh;
+  overflow: scroll;
+}
+
 .result-row {
-  margin-bottom: 5px;
+  margin-left: 80px;
 }
 
 .result-img {
@@ -171,7 +204,9 @@ body {
 
 .result-info {
   display: inline-block;
-  font-size: 14px;
+  font-size: 18px;
+  vertical-align: -.9em;
+  margin-left: .5em;
 }
 
 .result-artists {

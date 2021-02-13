@@ -54,7 +54,7 @@ const Header = ({ user, loggedIn, setShow }) => {
             </Popover>
           </Overlay>
           </div>
-        <img id='header-profile-pic' src={user.profilePic} alt='profile-pic'></img>
+        <img id='header-profile-pic' src={user.profilePic} alt=''></img>
       </div>
     </div>
   )
