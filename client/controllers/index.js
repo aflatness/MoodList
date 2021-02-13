@@ -1,11 +1,13 @@
-const getSongs = require('./getSongs.js')
-const getFeatures = require('./getFeatures.js')
-const getRecommended = require('./getRecommended.js')
+const getSongs = require('./getSongs.js');
+const getFeatures = require('./getFeatures.js');
+const getRecommended = require('./getRecommended.js');
+const addPlaylist = require('./addPlaylist.js');
 
 module.exports = {
   getSongs,
   getFeatures,
-  getRecommended
+  getRecommended,
+  addPlaylist
 }
 
 //get users top 100 tracks

@@ -1,10 +1,16 @@
 import React from 'react';
+import { addPlaylist } from '../controllers';
 
-const Results = ({ results }) => {
+const Results = ({ results, accessToken }) => {
+
+  const addSongs = () => {
+
+  }
+
   return (
     <div id='results' >
       <div id='results-title'>Your playlist
-        {results.lengfth === 0 ? '' : <button id='results-add-playlist'>Add Playlist</button>}
+        {results.lengfth === 0 ? '' : <button id='results-add-playlist' onClick={addSongs}>Add Playlist</button>}
       </div>
       <div id='results-container'>
         {results.length === 0 ? 'No matching results. Try again.' : results.map(t => {
@@ -18,7 +24,7 @@ const Results = ({ results }) => {
                 <div className='result-artists' >{artists.reduce((m, v, i) => {
                   return i < artists.length - 1 ? `${v.name}, ` : `${v.name}`;
                 }, '')}
-              </div>
+                </div>
               </div>
             </div>
           )

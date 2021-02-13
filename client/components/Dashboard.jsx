@@ -16,7 +16,7 @@ const Dashboard = ({ user, loggedIn, setUser, getData }) => {
       <Header user={user} loggedIn={loggedIn} setShow={setShow} />
       {show === 'history' ? <History history={user.moodHistory} />
       : show === 'loading' ? <Loading />
-      : show === 'results' ? <Results results={results} />
+      : show === 'results' ? <Results results={results} accessToken={user.accessToken} />
       : <MoodForm user={user} setUser={setUser} getData={getData} setShow={setShow} setResults={setResults} />}
     </div>
   )
