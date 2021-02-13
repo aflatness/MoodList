@@ -38,15 +38,17 @@ body {
   cursor: pointer;
 }
 
+#login-btn img {
+  margin-right: 10px;
+  height: 35px;
+  width: 35px;
+}
+
 #login-btn a {
   text-decoration: none;
   color: inherit;
 }
 
-#login-btn img {
-  height: 35px;
-  width: 35px;
-}
 
 /* Header Styling */
 #header {
@@ -56,8 +58,10 @@ body {
 }
 
 #header-logo {
-  height: 30px;
-  width: 30px;
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 
 #header-profile-pic {

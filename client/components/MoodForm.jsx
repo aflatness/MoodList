@@ -41,6 +41,7 @@ const MoodForm = ({ user }) => {
 
   return (
     <div id='mood-slider'>
+      <div>What is your mood?</div>
       <div>Mood: {mood}% {'  '}
         <RangeSlider onChange={(e) => setMood(e.target.value)} />
       </div>

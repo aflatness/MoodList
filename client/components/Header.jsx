@@ -1,5 +1,6 @@
 import React from 'react';
 import Cookies from 'js-cookie';
+import Logo from '../Styles/Spotify_Icon_RGB_White.png';
 
 const Header = ({ user, loggedIn }) => {
   const logOut = () => {
@@ -9,8 +10,7 @@ const Header = ({ user, loggedIn }) => {
   return (
     <div id='header'>
       <div id='header-title'>
-      client/Styles/Spotify_Icon_RGB_White.png
-        <img id='header-logo' src='/client/Styles/Spotify_Icon_RGB_White.png' alt='sp-black-icon'></img>
+        <img id='header-logo' src={Logo} alt='sp-black-icon'></img>
         MoodList
         <div id='logout' onClick={logOut}>Log out</div>
         <div id='header-name'>{user.displayName}</div>

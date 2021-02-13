@@ -42,6 +42,7 @@
     "@babel/preset-react": "^7.12.13",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.0.2",
+    "url-loader": "^4.1.1",
     "webpack": "^5.21.2",
     "webpack-cli": "^4.5.0"
   }
