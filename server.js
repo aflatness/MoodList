@@ -30,8 +30,8 @@ app.get('/auth/spotify', passport.authenticate('spotify', {
 
 app.get('/auth/spotify/callback', passport.authenticate('spotify', {failureRedirect: '/'}),
   function (req, res) {
-    console.log(req.user);
-    res.cookie('spotify-auth-session', JSON.stringify(req.user), { expires: new Date(Date.now() + 3600) }).redirect('/');
+    console.log('successful login');
+    res.cookie('spotify-auth-session', JSON.stringify(req.user._id), { expires: new Date(Date.now() + 3600) }).redirect('/');
   }
 );
 

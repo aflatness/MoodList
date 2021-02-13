@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css';
 
 
-const MoodForm = ({ user, setUser, getData }) => {
+const MoodForm = ({ user, setUser, getData, setShow, setResults }) => {
   const [mood, setMood ] = useState(50);
   const [energy, setEnergy] = useState(50);
 
@@ -26,24 +26,30 @@ const MoodForm = ({ user, setUser, getData }) => {
   }
 
   const submitMood = async () => {
+    setShow('loading')
+    saveMood();
     const { accessToken } = user;
     const energyDec = Number(energy) / 100;
-    const moodDec = (Number(mood) + Number(energy)) / 250;
 
-    console.log(energyDec, moodDec)
+    const moodDec = (Number(mood) + Number(energy)) / 250;
 
     const { data } = await getSongs(accessToken);
     const tracks = data.items.map((v) => v.id).join('%2C');
 
     const features = await getFeatures(tracks, accessToken);
-    console.log(features)
     const filtered = features.data.audio_features
       .filter((t) => t.energy >= (energyDec - 0.15) && t.energy <= (energyDec + 0.15))
       .filter((t) => t.danceability >= (moodDec - 0.15) && t.danceability <= (moodDec + 0.15))
-      .map((v) => v.id).join('%2c');
+      .map((v) => v.id).slice(0, 5).join('%2c');
 
-    const playlistTracks = await getRecommended(filtered, accessToken, energyDec - 0.15, moodDec - 0.15, energyDec + 0.15, moodDec + 0.15);
-    console.log(playlistTracks.data);
+    if (!filtered.length) {
+      setResults([]);
+    } else {
+
+      const playlistTracks = await getRecommended(filtered, accessToken, energyDec - 0.15, moodDec - 0.15, energyDec + 0.15, moodDec + 0.15);
+      setResults(playlistTracks.data.tracks);
+    }
+    setTimeout(() => setShow('results'), 1000);
   }
 
   return (
@@ -52,6 +58,7 @@ const MoodForm = ({ user, setUser, getData }) => {
       <div>Mood: {mood}% {'  '}
         <RangeSlider variant='success' value={mood} step={10} onChange={(e) => setMood(e.target.value)} />
       </div>
+      <br />
       <div>Energy: {energy}% {'  '}
         <RangeSlider variant='success' value={energy} step={10} onChange={(e) => setEnergy(e.target.value)} />
       </div>

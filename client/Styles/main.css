@@ -115,6 +115,7 @@ body {
 #mood-slider {
   margin-top: 30px;
   font-size: 20px;
+  width: 400px;
 }
 
 #mood-title {
@@ -140,12 +141,13 @@ body {
 }
 
 #history-title {
+  margin-top: 15px;
+  margin-bottom: 20px;
   font-size: 48px;
   text-decoration: underline;
-  margin-bottom: 20px
 }
 
-#history-block .table {
+#history-block .table, #loading-notice {
   width: fill !important;
   max-width: fill !important;
   margin: auto;
@@ -153,6 +155,25 @@ body {
   font-size: 20px;
 }
 
-/* .range-slider--success:root {
-  background-color: green !important;
-} */
+#loading-notice {
+  margin-top: 50px;
+  font-size: 40px;
+}
+
+.result-row {
+  margin-bottom: 5px;
+}
+
+.result-img {
+  width: 64px;
+  height: 64px;
+}
+
+.result-info {
+  display: inline-block;
+  font-size: 14px;
+}
+
+.result-artists {
+  color: rgb(177, 177, 177)
+}

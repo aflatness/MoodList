@@ -13,9 +13,9 @@ const App = (props) => {
     const cook = Cookies.get('spotify-auth-session')
     console.log(cook)
     if (cook) {
-      const obj = JSON.parse(Cookies.get('spotify-auth-session'));
+      const id = JSON.parse(Cookies.get('spotify-auth-session'));
       setLoggedIn(true)
-      getData(obj._id)
+      getData(id)
       // setUser(obj)
     }
   }, [Cookies.get('spotify-auth-session'), isLoggedIn])

@@ -16,7 +16,7 @@ const History = ({ history }) => {
           </tr>
         </thead>
         <tbody>
-          {history.map(data => <HistoryRow data={data} />)}
+          {history.reverse().map(data => <HistoryRow data={data} />)}
         </tbody>
       </Table>
     </div>
