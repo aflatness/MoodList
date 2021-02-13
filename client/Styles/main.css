@@ -43,6 +43,11 @@ body {
   color: inherit;
 }
 
+#login-btn img {
+  height: 35px;
+  width: 35px;
+}
+
 /* Header Styling */
 #header {
   /* height: 100px; */
@@ -50,7 +55,12 @@ body {
   background-color: rgb(21, 21, 77);
 }
 
-#header-title img {
+#header-logo {
+  height: 30px;
+  width: 30px;
+}
+
+#header-profile-pic {
   margin-top: 0.3em;
   margin-right: 10px;
   height: 30px;
