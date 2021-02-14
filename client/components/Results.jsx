@@ -1,16 +1,22 @@
 import React from 'react';
-import { addPlaylist } from '../controllers';
+import { addPlaylist, playerControl } from '../controllers';
+import initializePlayer from '../controllers/initializePlayer.js'
 
-const Results = ({ results, accessToken }) => {
+const Results = ({ results, accessToken, player }) => {
 
-  const addSongs = () => {
+  const playSongs = () => {
+    const tracks = results.map(v => v.uri);
+    playerControl(tracks, player)
+  }
 
+  const addPlaylist = () => {
+    //Create button to allow user to add playlist to profile on spotify
   }
 
   return (
     <div id='results' >
       <div id='results-title'>Your playlist
-        {results.lengfth === 0 ? '' : <button id='results-add-playlist' onClick={addSongs}>Add Playlist</button>}
+        {!results.length ? '' : <button id='results-add-playlist' onClick={playSongs}>Play playlist</button>}
       </div>
       <div id='results-container'>
         {results.length === 0 ? 'No matching results. Try again.' : results.map(t => {

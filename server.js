@@ -25,7 +25,7 @@ app.use(cookieSession({
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/auth/spotify', passport.authenticate('spotify', {
-  scope: ['user-library-read', 'user-top-read', ]
+  scope: ['user-library-read', 'user-top-read', 'streaming', 'user-read-private', 'user-read-email', 'user-read-currently-playing', 'user-modify-playback-state']
 }));
 
 app.get('/auth/spotify/callback', passport.authenticate('spotify', {failureRedirect: '/'}),

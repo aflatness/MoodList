@@ -2,12 +2,14 @@ const getSongs = require('./getSongs.js');
 const getFeatures = require('./getFeatures.js');
 const getRecommended = require('./getRecommended.js');
 const addPlaylist = require('./addPlaylist.js');
+const playerControl = require('./playerControl.js');
 
 module.exports = {
   getSongs,
   getFeatures,
   getRecommended,
-  addPlaylist
+  addPlaylist,
+  playerControl
 }
 
 //get users top 100 tracks

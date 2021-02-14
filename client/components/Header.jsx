@@ -3,7 +3,7 @@ import Cookies from 'js-cookie';
 import Logo from '../Styles/Spotify_Icon_RGB_White.png';
 import { Button, Overlay, Popover } from 'react-bootstrap';
 
-const Header = ({ user, loggedIn, setShow }) => {
+const Header = ({ user, loggedIn, setShow, player, setPlayerInit }) => {
   const [overlay, showOverlay] = useState(false);
   const [target, setTarget] = useState(null);
   const ref = useRef(null);
@@ -28,6 +28,8 @@ const Header = ({ user, loggedIn, setShow }) => {
   const logOut = () => {
     Cookies.remove('spotify-auth-session');
     loggedIn(false);
+    player.disconnect();
+    setPlayerInit(false);
   }
   return (
     <div id='header'>

@@ -45,7 +45,6 @@ const MoodForm = ({ user, setUser, getData, setShow, setResults }) => {
     if (!filtered.length) {
       setResults([]);
     } else {
-
       const playlistTracks = await getRecommended(filtered, accessToken, energyDec - 0.15, moodDec - 0.15, energyDec + 0.15, moodDec + 0.15);
       setResults(playlistTracks.data.tracks);
     }
