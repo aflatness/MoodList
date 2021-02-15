@@ -4,8 +4,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cookieSession = require('cookie-session');
 const { User } = require('./database');
-const hashFunc = require('./utils/hash.js');
-const validatePwd = require('./utils/validatePwd.js');
 const passport = require('passport');
 require('./utils/passport.js');
 
@@ -34,9 +32,6 @@ app.get('/auth/spotify/callback', passport.authenticate('spotify', {failureRedir
     res.cookie('spotify-auth-session', JSON.stringify(req.user._id), {expires: new Date(Date.now() + 3600000)}).redirect('https://moodlist-heroku.herokuapp.com/');
   }
 );
-
-// app.get('/login', (req, res) => res.send());
-// app.get('/loggedIn', (req, res) => res.send());
 
 app.get('/api/user/:id', async (req, res) => {
   try {
