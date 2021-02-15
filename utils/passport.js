@@ -16,7 +16,7 @@ passport.use(
     {
       clientID: clientID,
       clientSecret: clientSecret,
-      callbackURL: "http://localhost:3000/auth/spotify/callback"
+      callbackURL: "https://moodlist-heroku.herokuapp.com/auth/spotify/callback"
     },
     function(accessToken, refreshToken, expires_in, profile, done) {
       console.log(accessToken, refreshToken, expires_in)
