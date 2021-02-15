@@ -16,7 +16,7 @@ const History = ({ history }) => {
           </tr>
         </thead>
         <tbody>
-          {history.map(data => <HistoryRow data={data} />)}
+          {history.map((data, i) => <HistoryRow data={data} key={i} />)}
         </tbody>
       </Table>
     </div>

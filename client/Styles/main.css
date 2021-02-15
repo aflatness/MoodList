@@ -1,8 +1,16 @@
 body {
-  /* background-color: rgb(31, 31, 112) !important; */
   background-color: rgb(101, 101, 223) !important;
   font-family: 'Varela Round', sans-serif !important;
   color: white !important;
+}
+
+/* button {
+  transition: background-color .5s;
+  box-shadow: 0 0 15px 7px rgb(88, 88, 192)
+} */
+
+button:disabled {
+  pointer-events: none;
 }
 
 /* Login page styling */
@@ -32,6 +40,8 @@ body {
   border-radius: 33px;
   padding: 8px 20px;
   outline: none;
+  transition: background-color .5s;
+  box-shadow: 0 0 15px 7px rgb(88, 88, 192)
 }
 
 #login-btn:hover {
@@ -55,8 +65,6 @@ body {
 #header {
   color: white;
   background-color: rgb(79, 79, 177);
-  /* background-color: rgb(21, 21, 77); */
-
 }
 
 #header-logo {
@@ -133,6 +141,8 @@ body {
   border-radius: 33px;
   padding: 8px 20px;
   outline: none;
+  transition: background-color .5s;
+  box-shadow: 0 0 15px 7px rgb(88, 88, 192)
 }
 
 #slider-btn:hover {
@@ -181,11 +191,18 @@ body {
   padding: 8px 20px;
   outline: none;
   vertical-align: .2em;
+  transition: background-color .5s;
+  box-shadow: 0 0 15px 7px rgb(88, 88, 192)
 }
 
 #results-add-playlist:hover {
   cursor: pointer;
   background-color: #1db954;
+}
+
+#results-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
 }
 
 #results-container {
@@ -211,4 +228,17 @@ body {
 
 .result-artists {
   color: rgb(177, 177, 177)
+}
+
+#spotify-embed {
+  display: inline-block;
+}
+
+.modal-content {
+  /* color: black; */
+  background-color:rgb(133, 133, 202) !important;
+}
+
+.modal-body {
+  font-size: 20px !important;
 }

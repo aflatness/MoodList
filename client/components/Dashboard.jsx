@@ -15,7 +15,7 @@ const Dashboard = ({ user, loggedIn, setUser, getData, player, setPlayerInit }) 
       <Header user={user} loggedIn={loggedIn} setShow={setShow} player={player} />
       {show === 'history' ? <History history={user.moodHistory} />
       : show === 'loading' ? <Loading />
-      : show === 'results' ? <Results results={results} accessToken={user.accessToken} player={player} setPlayerInit={setPlayerInit} />
+      : show === 'results' ? <Results results={results} accessToken={user.accessToken} userId={user.spotifyId} increment={user.moodHistory.length} player={player} setPlayerInit={setPlayerInit} />
       : <MoodForm user={user} setUser={setUser} getData={getData} setShow={setShow} setResults={setResults} />}
     </div>
   )

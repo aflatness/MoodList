@@ -14,13 +14,11 @@ const Header = ({ user, loggedIn, setShow, player, setPlayerInit }) => {
   }
 
   const showHistory = () => {
-    console.log('history will show');
     setShow('history');
     showOverlay(!overlay);
   }
 
   const showMoodSlider = () => {
-    console.log('Mood slider will show');
     setShow('moodSlider');
     showOverlay(!overlay);
   }

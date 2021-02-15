@@ -1,9 +1,12 @@
+const axios = require('axios');
+
 const playerControl = (uris, { _options }) => {
+  console.log(uris)
   _options.getOAuthToken(access_token => {
-    fetch(`https://api.spotify.com/v1/me/player/play?device_id=${_options.id}`, {
-      method: 'PUT',
-      body: JSON.stringify({ uris }),
-      headers: {
+    axios.put(`https://api.spotify.com/v1/me/player/play?device_id=${_options.id}`, {
+      context_uri: uris[0]
+    },
+    { headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${access_token}`
       },
