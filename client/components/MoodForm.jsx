@@ -12,7 +12,7 @@ const MoodForm = ({ user, setUser, getData, setShow, setResults }) => {
   const [energy, setEnergy] = useState(50);
 
   const saveMood = () => {
-    axios.put(`http://https://moodlist-heroku.herokuapp.com/api/user/${user._id}`, {
+    axios.put(`https://moodlist-heroku.herokuapp.com/api/user/${user._id}`, {
       mood: Number(mood),
       energy: Number(energy),
       date: new Date()
