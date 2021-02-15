@@ -34,4 +34,4 @@ bower_components/
 .floo
 .flooignore
 
-config.js
+# config.js
