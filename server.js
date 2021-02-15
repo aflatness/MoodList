@@ -28,10 +28,10 @@ app.get('/auth/spotify', passport.authenticate('spotify', {
   scope: ['user-library-read', 'user-top-read', 'streaming', 'user-read-private', 'user-read-email', 'user-read-currently-playing', 'user-modify-playback-state', 'playlist-modify-private']
 }));
 
-app.get('/auth/spotify/callback', passport.authenticate('spotify', {failureRedirect: '/'}),
+app.get('/auth/spotify/callback', passport.authenticate('spotify', {failureRedirect: 'https://moodlist-heroku.herokuapp.com/'}),
   function (req, res) {
     console.log('successful login');
-    res.cookie('spotify-auth-session', JSON.stringify(req.user._id), {expires: new Date(Date.now() + 3600000)}).redirect('/');
+    res.cookie('spotify-auth-session', JSON.stringify(req.user._id), {expires: new Date(Date.now() + 3600000)}).redirect('https://moodlist-heroku.herokuapp.com/');
   }
 );
 
