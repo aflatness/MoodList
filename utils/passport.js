@@ -26,7 +26,7 @@ passport.use(
         displayName,
         spotifyId: id,
         profileUrl,
-        profilePic: photos[0] ? photos[0].value : 'https://png.pngtree.com/png-vector/20190909/ourlarge/pngtree-outline-user-icon-png-image_1727916.jpg'
+        profilePic: photos[0] ? photos[0].value : 'https://png.pngtree.com/png-vector/20190909/ourlarge/pngtree-outline-user-icon-png-image_1727916.jpg',
         accessToken
       }
       User.findOrCreate({ spotifyId: id}, obj, function(err, user) {
