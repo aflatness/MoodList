@@ -54,8 +54,10 @@ app.put('/api/user/:id', async (req, res) => {
 
 app.put('/api/playlists/:id', async (req, res) => {
   try {
-    const user = await User.findByIdAndUpdate(req.params.id, {$push: {playlists: req.body.playlist}})
-    res.status(202).send();
+    const user = await User.findById(req.params.id)
+    user.moodHistory[user.moodHistory.length - 1].playlist = req.body.url;
+    await user.save();
+    res.status(202).send(user);
   } catch (err) {
     res.status(404).send();
   }

@@ -9,13 +9,12 @@ const Dashboard = ({ user, loggedIn, setUser, getData, player, setPlayerInit }) 
   const [show, setShow] = useState('moodSlider');
   const [results, setResults] = useState([]);
 
-  console.log('Showing: ', show)
   return (
     <div>
       <Header user={user} loggedIn={loggedIn} setShow={setShow} player={player} />
       {show === 'history' ? <History history={user.moodHistory} />
       : show === 'loading' ? <Loading />
-      : show === 'results' ? <Results results={results} accessToken={user.accessToken} userId={user.spotifyId} increment={user.moodHistory.length} player={player} setPlayerInit={setPlayerInit} />
+      : show === 'results' ? <Results results={results} accessToken={user.accessToken} userId={user.spotifyId} increment={user.moodHistory.length} player={player} setPlayerInit={setPlayerInit} setUser={setUser} dbID={user._id} />
       : <MoodForm user={user} setUser={setUser} getData={getData} setShow={setShow} setResults={setResults} />}
     </div>
   )

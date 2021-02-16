@@ -1,17 +1,26 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { addPlaylist, playerControl, createPlaylist, addSongs } from '../controllers';
 import { Modal, Button } from 'react-bootstrap';
 
 
-const Results = ({ results, accessToken, player, userId, increment }) => {
+const Results = ({ results, accessToken, player, userId, increment, setUser, dbID }) => {
   const [show, setShow] = useState(false);
 
   const playSongs = async () => {
     const tracks = results.map(v => v.uri);
     const { data } = await createPlaylist(accessToken, userId, increment);
+    const url = data.external_urls.spotify;
     const created = await addSongs(accessToken, data.id, tracks);
 
-    document.getElementById('spotify-embed').insertAdjacentHTML('beforeend', `<iframe src="https://open.spotify.com/embed/playlist/${data.id}" width="500" height="580" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
+    axios.put(`https://moodlist-heroku.herokuapp.com/api/playlists/${dbID}`, {url})
+      .then(({ data }) => {
+        data.moodHistory.reverse();
+        setUser(data)
+      })
+      .catch(console.log);
+
+    document.getElementById('results-grid').insertAdjacentHTML('beforeend', `<div id='spotify-embed'><iframe src="https://open.spotify.com/embed/playlist/${data.id}" width="70%" height="85%" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe></div>`);
 
     const addBtn = document.getElementById('results-add-playlist');
     addBtn.disabled = true;
@@ -49,8 +58,6 @@ const Results = ({ results, accessToken, player, userId, increment }) => {
               </div>
             )
           })}
-        </div>
-        <div id='spotify-embed'>
         </div>
       </div>
       <Modal

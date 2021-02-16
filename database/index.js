@@ -9,7 +9,8 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/moodList', {
 const historySchema = new mongoose.Schema({
   mood: Number,
   energy: Number,
-  date: String
+  date: String,
+  playlist: {type: String, default: 'N/A'}
 })
 
 const userSchema = new mongoose.Schema({

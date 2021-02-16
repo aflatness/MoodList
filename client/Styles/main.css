@@ -4,11 +4,6 @@ body {
   color: white !important;
 }
 
-/* button {
-  transition: background-color .5s;
-  box-shadow: 0 0 15px 7px rgb(88, 88, 192)
-} */
-
 button:disabled {
   pointer-events: none;
 }
@@ -150,6 +145,11 @@ button:disabled {
   background-color: #1db954;
 }
 
+.table-responsive {
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
 #history-title {
   margin-top: 15px;
   margin-bottom: 20px;
@@ -201,17 +201,18 @@ button:disabled {
 }
 
 #results-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
+  display: flex;
+}
+
+#results-grid>* {
+  flex: 1 1 600px;
 }
 
 #results-container {
   height: 100vh;
   overflow: scroll;
-}
-
-.result-row {
   margin-left: 80px;
+  margin-right: 80px;
 }
 
 .result-img {
@@ -235,10 +236,14 @@ button:disabled {
 }
 
 .modal-content {
-  /* color: black; */
   background-color:rgb(133, 133, 202) !important;
 }
 
 .modal-body {
   font-size: 20px !important;
+}
+
+#spotify-embed iframe {
+  margin-left: 12%;
+  text-align: center;
 }
