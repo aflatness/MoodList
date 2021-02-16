@@ -38,7 +38,6 @@ const App = (props) => {
       .catch((err => console.log(err)))
   }
 
-  console.log(isLoggedIn, user)
   return ( isLoggedIn ? <Dashboard user={user} loggedIn={setLoggedIn} setUser={setUser} getData={getData} player={player} setPlayerInit={setPlayerInit} /> : <Login />
   )
 }
