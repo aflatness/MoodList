@@ -25,7 +25,8 @@ const Results = ({ results, accessToken, player, userId, increment, setUser, dbI
     const addBtn = document.getElementById('results-add-playlist');
     addBtn.disabled = true;
     addBtn.innerHTML = 'Playlist created!';
-    addBtn.style.color = '#0e5527'
+    addBtn.style.color = '#0e5527';
+    addBtn.style.boxShadow = '0 0 0 0'
 
     playerControl([`spotify:playlist:${data.id}`], player);
   }

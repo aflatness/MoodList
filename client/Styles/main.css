@@ -1,19 +1,24 @@
 body {
-  background-color: rgb(101, 101, 223) !important;
+  background-color: rgb(195, 230, 200) !important;
   font-family: 'Varela Round', sans-serif !important;
-  color: white !important;
+  color: black !important;
 }
 
 button:disabled {
   pointer-events: none;
 }
 
-/* Login page styling */
+/*
+#####################
+      Login Page
+#####################
+*/
+
 #login-page, #mood-slider, #history-title {
   margin: auto;
   width: 50%;
   text-align: center;
-  color: white;
+  color: black;
 }
 
 #login-title {
@@ -36,7 +41,7 @@ button:disabled {
   padding: 8px 20px;
   outline: none;
   transition: background-color .5s;
-  box-shadow: 0 0 15px 7px rgb(88, 88, 192)
+  box-shadow: 0 0 15px 7px rgb(138, 198, 164)
 }
 
 #login-btn:hover {
@@ -55,11 +60,15 @@ button:disabled {
   color: inherit;
 }
 
+/*
+##################
+      Header
+##################
+*/
 
-/* Header Styling */
 #header {
   color: white;
-  background-color: rgb(79, 79, 177);
+  background-color: rgb(13, 35, 19);
 }
 
 #header-logo {
@@ -103,7 +112,7 @@ button:disabled {
   padding-top: .6em;
   font-size: 24px;
   vertical-align: baseline;
-  color: rgb(42, 42, 42);
+  color: rgb(157, 157, 157);
   cursor: pointer;
 }
 
@@ -114,6 +123,12 @@ button:disabled {
 #logout:hover {
   color: #fff;
 }
+
+/*
+#######################
+    MoodSlider Page
+#######################
+*/
 
 #mood-slider {
   margin-top: 30px;
@@ -137,7 +152,7 @@ button:disabled {
   padding: 8px 20px;
   outline: none;
   transition: background-color .5s;
-  box-shadow: 0 0 15px 7px rgb(88, 88, 192)
+  box-shadow: 0 0 15px 7px rgb(138, 198, 164)
 }
 
 #slider-btn:hover {
@@ -145,10 +160,20 @@ button:disabled {
   background-color: #1db954;
 }
 
+input[type='range']::-webkit-slider-runnable-track {
+  background-color: rgb(13, 35, 19) !important;
+}
+
 .table-responsive {
   padding-left: 15%;
   padding-right: 15%;
 }
+
+/*
+########################
+      History Page
+########################å
+*/
 
 #history-title {
   margin-top: 15px;
@@ -169,6 +194,12 @@ button:disabled {
   margin-top: 50px;
   font-size: 40px;
 }
+
+/*
+########################
+      Results Page
+########################
+*/
 
 #results {
   margin-top: 25px;
@@ -192,7 +223,7 @@ button:disabled {
   outline: none;
   vertical-align: .2em;
   transition: background-color .5s;
-  box-shadow: 0 0 15px 7px rgb(88, 88, 192)
+  box-shadow: 0 0 15px 7px rgb(138, 198, 164)
 }
 
 #results-add-playlist:hover {
@@ -228,7 +259,7 @@ button:disabled {
 }
 
 .result-artists {
-  color: rgb(177, 177, 177)
+  color: rgb(126, 126, 126);
 }
 
 #spotify-embed {
@@ -236,7 +267,8 @@ button:disabled {
 }
 
 .modal-content {
-  background-color:rgb(133, 133, 202) !important;
+  background: rgb(54, 101, 66) !important;
+  color: white;
 }
 
 .modal-body {
