@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { addPlaylist, playerControl, createPlaylist, addSongs } from '../controllers';
-import { Modal, Button } from 'react-bootstrap';
+import { Modal, Button, Overlay, Popover } from 'react-bootstrap';
 
 
 const Results = ({ results, accessToken, player, userId, increment, setUser, dbID }) => {
   const [show, setShow] = useState(false);
+  const [target, setTarget] = useState('');
+  const [showTip, setShowTip] = useState(true);
+  const [targetTip, setTargetTip] = useState('');
 
   const playSongs = async () => {
     const tracks = results.map(v => v.uri);
@@ -32,25 +35,52 @@ const Results = ({ results, accessToken, player, userId, increment, setUser, dbI
   }
 
   const addPlaylist = () => {
+    const child = document.getElementsByTagName('audio')[0];
+    target ? target.removeChild(child) : null;
     setShow(false)
     playSongs();
   }
+
+  const playPreview = async (node, src) => {
+    setShowTip(false);
+    if (src) {
+      const child = document.getElementsByTagName('audio')[0];
+      target ? target.removeChild(child) : null;
+      await setTarget(node);
+      node.insertAdjacentHTML('beforeend', `<audio autoplay><source src=${src}></audio>`);
+    }
+  }
+
+  useEffect(() => {
+    setTargetTip(document.getElementsByClassName('result-img')[0])
+  }, [])
 
   return (
     <div id='results' >
       <div id='results-title'>Your playlist
         {!results.length ? '' : <button id='results-add-playlist' onClick={() => setShow(true)}>Add and play playlist</button>}
       </div>
+      <Overlay
+        show={showTip}
+        target={targetTip}
+        placement="top"
+      >
+        <Popover id="popover-contained">
+          <Popover.Content>Click on an album artwork to start playing a preview, if available.</Popover.Content>
+        </Popover>
+      </Overlay>
       <div id='results-grid'>
         <div id='results-container'>
           {results.length === 0 ? 'No matching results. Try again.' : results.map((t, i) => {
-            const { name, preview_url, id, artists, album } = t;
+            const { name, preview_url, id, artists, album, explicit } = t;
             const albumImg = album.images[2].url;
             return (
               <div className='result-row' key={i} >
-                <img className='result-img' src={albumImg} alt=''></img>
+                <img className='result-img' src={albumImg} alt='' onClick={(e) => playPreview(e.target, preview_url)}  ></img>
                 <div className='result-info'>
-                  <div className='result-name'>{name}</div>
+                  <div className='result-name'>{name}
+                    {explicit ? <div id='result-explicit' >Explicit</div> : null}
+                  </div>
                   <div className='result-artists' >{artists.reduce((m, v, i) => {
                     return i < artists.length - 1 ? `${v.name}, ` : `${v.name}`;
                   }, '')}

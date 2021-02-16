@@ -249,6 +249,7 @@ input[type='range']::-webkit-slider-runnable-track {
 .result-img {
   width: 64px;
   height: 64px;
+  cursor: pointer;
 }
 
 .result-info {
@@ -278,4 +279,14 @@ input[type='range']::-webkit-slider-runnable-track {
 #spotify-embed iframe {
   margin-left: 12%;
   text-align: center;
+}
+
+#result-explicit {
+  display: inline-block;
+  margin-left: 1em;
+  color: red;
+  font-size: 12px;
+  border: 1px solid red;
+  padding: 0 3px;
+  vertical-align: .1em;
 }
