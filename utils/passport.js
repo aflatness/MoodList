@@ -1,6 +1,6 @@
 const passport = require('passport');
 const SpotifyStrategy = require('passport-spotify').Strategy;
-const { clientID, clientSecret } = require('../config.js');
+// const { clientID, clientSecret } = require('../config.js');
 const { User } = require('../database');
 
 passport.serializeUser(function (user, done) {
@@ -14,8 +14,8 @@ passport.deserializeUser(function (obj, done) {
 passport.use(
   new SpotifyStrategy(
     {
-      clientID: clientID,
-      clientSecret: clientSecret,
+      clientID: process.env.CLIENT_ID,
+      clientSecret: process.env.CLIENT_SECRET,
       callbackURL: "https://moodlist-heroku.herokuapp.com/auth/spotify/callback"
     },
     function(accessToken, refreshToken, expires_in, profile, done) {
