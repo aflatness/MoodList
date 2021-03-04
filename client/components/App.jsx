@@ -38,7 +38,15 @@ const App = (props) => {
       .catch((err => console.log(err)))
   }
 
-  return ( isLoggedIn ? <Dashboard user={user} loggedIn={setLoggedIn} setUser={setUser} getData={getData} player={player} setPlayerInit={setPlayerInit} /> : <Login />
+  return (
+    <>
+      {isLoggedIn ?
+      <Dashboard user={user} loggedIn={setLoggedIn} setUser={setUser} getData={getData} player={player} setPlayerInit={setPlayerInit} />
+      : <Login />}
+      <div id='copyright'>
+        <span>&#169; 2021</span> Made with love by <a href='https://alec.flatness.com' target='_blank'>Alec Flatness</a>
+      </div>
+    </>
   )
 }
 

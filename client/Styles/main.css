@@ -290,3 +290,10 @@ input[type='range']::-webkit-slider-runnable-track {
   padding: 0 3px;
   vertical-align: .1em;
 }
+
+#copyright {
+  text-align: center;
+  color: grey !important;
+  text-decoration: none;
+  margin-top: 29%;
+}
