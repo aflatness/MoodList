@@ -95,7 +95,7 @@ To get a local copy up and running follow these steps.
    npm install
    ```
 3. Do one of the following:
-    1. Create a MongoDB Cloud Atlas account and cluster, and set the ```process.env.MONGODB_URI``` to your connection string.
+    1. Create a [MongoDB Cloud Atlas](https://account.mongodb.com/account/register) account and cluster, and set the ```process.env.MONGODB_URI``` to your connection string.
     2. Create a local MongoDB database called **MoodList**
 
 4. Create a [Spotify API account](https://developer.spotify.com/dashboard/login), create an app, and set ```process.env.CLIENT_ID``` and ```process.env.CLIENT_SECRET``` to their respective tokens.
