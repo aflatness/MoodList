@@ -60,7 +60,7 @@ Don't like the mix? Go ahead and try again to find new recommendations.
 Don't search for new music, let MoodList do it for you.
 
 
-![MoodList](./images/mock1.jpg)
+![MoodList](./public/images/mock1.jpg)
 
 ### Built With
 
@@ -72,7 +72,7 @@ Don't search for new music, let MoodList do it for you.
 * [Docker](https://www.docker.com/)
 
 
-![MoodList](./images/mock2.jpg)
+![MoodList](./public/images/mock2.jpg)
 
 ## Getting Started
 
