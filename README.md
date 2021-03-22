@@ -8,7 +8,7 @@
     Curated Spotify Playlists based on your current mood and your top 50 tracks listened to on Spotify.
     <br />
     <br />
-    <a href="https://www.moodlist-heroku.herokuapp.com" target="_blank">View Demo</a>
+    <a href="https://moodlist-heroku.herokuapp.com" target="_blank">View Demo</a>
     ·
     <a href="https://github.com/aflatness/MoodList/issues">Report Bug</a>
     ·
@@ -66,7 +66,7 @@ Don't search for new music, let MoodList do it for you.
 
 * [React](https://reactjs.org/)
 * [React-Bootstrap](https://react-bootstrap.github.io/)
-* [Spotify API](https://developer.spotify.com/documentation/web-api/)
+* [Spotify API](https://developer.spotify.com/)
 * [Mongoose](https://mongoosejs.com/)
 * [Passport](http://www.passportjs.org/)
 * [Docker](https://www.docker.com/)
@@ -97,7 +97,9 @@ To get a local copy up and running follow these steps.
 3. Do one of the following:
     1. Create a MongoDB Cloud Atlas account and cluster, and set the ```process.env.MONGODB_URI``` to your connection string.
     2. Create a local MongoDB database called **MoodList**
+
 4. Create a [Spotify API account](https://developer.spotify.com/dashboard/login), create an app, and set ```process.env.CLIENT_ID``` and ```process.env.CLIENT_SECRET``` to their respective tokens.
+
 5. Run the following commands:
    ```sh
    npm run react-dev
@@ -139,4 +141,4 @@ Project Link: [https://github.com/aflatness/MoodList](https://github.com/aflatne
 
 ## Acknowledgements
 
-* [Spotify API](https://developer.spotify.com/documentation/web-api/)
+* [Spotify API](https://developer.spotify.com/)
