@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import Cookies from 'js-cookie';
@@ -38,13 +38,15 @@ const App = (props) => {
       .catch((err => console.log(err)))
   }
 
+  const year = useMemo(() => new Date().getFullYear(), [])
+
   return (
     <>
       {isLoggedIn ?
       <Dashboard user={user} loggedIn={setLoggedIn} setUser={setUser} getData={getData} player={player} setPlayerInit={setPlayerInit} />
       : <Login />}
       <div id='copyright'>
-        <span>&#169; 2021</span> Made with love by <a href='https://alec.flatness.com' target='_blank'>Alec Flatness</a>
+        <span>&#169; {year}</span> Made with love by <a href='https://alecflatness.com' target='_blank'>Alec Flatness</a>
       </div>
     </>
   )

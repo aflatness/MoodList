@@ -23,7 +23,7 @@ button:disabled {
 
 #login-title {
   font-size: 50px;
-  margin-top: .8em;
+  padding-top: .8em;
 }
 
 #login-note {
@@ -295,5 +295,7 @@ input[type='range']::-webkit-slider-runnable-track {
   text-align: center;
   color: grey !important;
   text-decoration: none;
-  margin-top: 29%;
+  bottom: 12px;
+  position: absolute;
+  width: 100%;
 }
